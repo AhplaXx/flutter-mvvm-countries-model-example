@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
           return Container(
             child: Column(
               children: [
-                Text(country.name,style: TextStyle(color: Colors.black),)
+                Text(country.name + " --- "+country.capital,style: TextStyle(color: Colors.black),)
               ],
             ),
           );
