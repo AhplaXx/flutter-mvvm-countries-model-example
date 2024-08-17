@@ -1,5 +1,5 @@
 import 'package:country/country_list/view_models/country_view_model.dart';
-import 'package:country/pages/home_page.dart';
+import 'package:country/country_list/views/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

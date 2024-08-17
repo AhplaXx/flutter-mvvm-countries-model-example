@@ -2,7 +2,7 @@ import 'package:country/country_list/view_models/country_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../country_list/models/country_list_models.dart';
+import '../models/country_list_models.dart';
 
 
 class HomePage extends StatelessWidget {
