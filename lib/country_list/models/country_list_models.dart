@@ -9,9 +9,9 @@ class Country {
 
   factory Country.fromJson(Map<String, dynamic> json) {
     return Country(
-      name: Utf8Decoder().convert(json['name']['common'].toString().codeUnits) ,
-      capital: (json['capital'] != null ) ? Utf8Decoder().convert(json['capital'][0].toString().codeUnits) : 'No Capital',
-      flag_url: (json['flags']['png'] as String)
+      name: const Utf8Decoder().convert(json['name']['common'].toString().codeUnits) ,
+      capital: (json['capital'] != null ) ? const Utf8Decoder().convert(json['capital'][0].toString().codeUnits) : 'No Capital',
+      flag_url: json['flags']['png'] as String
     );
   }
 

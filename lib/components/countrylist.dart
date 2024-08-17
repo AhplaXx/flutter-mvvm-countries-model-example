@@ -15,13 +15,10 @@ class Countrylist extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
-      child: Container(
-
-        child: Column(
-          children: [
-            Text(country.name + " --- "+country.capital,style: TextStyle(color: Colors.black),)
-          ],
-        ),
+      child: Column(
+        children: [
+          Text(country.name + " --- "+country.capital,style: const TextStyle(color: Colors.black),)
+        ],
       ),
     );
   }
