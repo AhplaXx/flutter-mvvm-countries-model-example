@@ -26,10 +26,10 @@ class HomePage extends StatelessWidget {
   }
   _ui(CountryViewModel countryViewModel){
     if(countryViewModel.loading){
-      return Column(
+      return const Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: Loading()),
+          const Center(child: Loading()),
         ],
       );
     }
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
             openCountryDetail(context);
           },);
         },
-        separatorBuilder: (context,index) => Divider(),
+        separatorBuilder: (context,index) => const Divider(),
         itemCount: countryViewModel.countryListModel.length
     )
     );
