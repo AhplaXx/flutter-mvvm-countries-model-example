@@ -1,3 +1,4 @@
+import 'package:country/components/loading.dart';
 import 'package:country/country_list/view_models/country_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,7 +27,7 @@ class HomePage extends StatelessWidget {
       return Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Center(child: CircularProgressIndicator()),
+          Center(child: Loading()),
         ],
       );
     }
