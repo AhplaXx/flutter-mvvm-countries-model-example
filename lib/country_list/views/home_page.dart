@@ -1,5 +1,7 @@
+import 'package:country/components/countrylist.dart';
 import 'package:country/components/loading.dart';
 import 'package:country/country_list/view_models/country_view_model.dart';
+import 'package:country/utils/navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -34,13 +36,10 @@ class HomePage extends StatelessWidget {
     return Expanded(child: ListView.separated(
         itemBuilder: (context,index){
           Country country = countryViewModel.countryListModel[index];
-          return Container(
-            child: Column(
-              children: [
-                Text(country.name + " --- "+country.capital,style: TextStyle(color: Colors.black),)
-              ],
-            ),
-          );
+          return Countrylist(country: country,onTap: () async{
+            countryViewModel.setSelectedCountry(country);
+            openCountryDetail(context);
+          },);
         },
         separatorBuilder: (context,index) => Divider(),
         itemCount: countryViewModel.countryListModel.length
