@@ -6,9 +6,11 @@ import '../models/country_list_models.dart';
 class CountryViewModel extends ChangeNotifier {
   bool _loading = false;
   List<Country> _countryListModel = [];
+  Country? _selectedCountry;
 
   bool get loading => _loading;
   List<Country> get countryListModel => _countryListModel;
+  Country? get selectedCountry => _selectedCountry;
 
   CountryViewModel() {
     _initialize();
@@ -25,6 +27,11 @@ class CountryViewModel extends ChangeNotifier {
 
   setCountryListModel(List<Country> countryListModel) {
     _countryListModel = countryListModel;
+    notifyListeners();
+  }
+
+  setSelectedCountry(Country selectedCountry){
+    _selectedCountry = selectedCountry;
     notifyListeners();
   }
 
