@@ -25,10 +25,7 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
             Center(
                 child: Column(
               children: [
-                const Text(
-                  "Country Flag",
-                  style: TextStyle(fontSize: 30, color: Colors.grey),
-                ),
+
                 const SizedBox(height: 10,),
                 CachedNetworkImage(
                   imageUrl: countryViewModel.selectedCountry!.flag_url,
@@ -38,40 +35,18 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
                 const SizedBox(
                   height: 20,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Row (
+                 children: [
+                   Text("Country Name: ",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.normal),),
+                   Text(countryViewModel.selectedCountry!.name,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+
+                 ],
+               ),
+                SizedBox(height: 8,),
+                Row (
                   children: [
-
-                    SizedBox(
-                      width: 150,
-                      child: Column(
-                        children: [
-                          const Text(
-                            "Country Name",
-                            style: TextStyle(fontSize: 22, color: Colors.grey),
-                          ),
-                          Text(
-                            countryViewModel.selectedCountry!.name,
-                            style: const TextStyle(fontSize: 20),
-                          )
-
-                        ],
-                      ),
-                    ),
-                    const SizedBox(width: 10,),
-                    Column(
-
-                      children: [
-                        const Text(
-                          "Country Capital",
-                          style: TextStyle(fontSize: 22, color: Colors.grey),
-                        ),
-                        Text(
-                          countryViewModel.selectedCountry!.capital,
-                          style: const TextStyle(fontSize: 20),
-                        ),
-                      ],
-                    )
+                    Text("Country Capital: ",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.normal),),
+                    Text(countryViewModel.selectedCountry!.capital,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                   ],
                 ),
