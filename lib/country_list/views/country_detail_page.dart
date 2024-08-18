@@ -85,6 +85,15 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
 
                   ],
                 ),
+                SizedBox(height: 8,),
+                Row (
+                  children: [
+
+                    Text("Currency: ",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.normal),),
+                    SizedBox(width: 280,child: Text(countryViewModel.selectedCountry!.currencyName,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),))
+
+                  ],
+                ),
 
                 const SizedBox(
                   height: 20,
