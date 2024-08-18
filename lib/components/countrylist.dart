@@ -17,7 +17,7 @@ class Countrylist extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
-          Text(country.name + " --- "+country.capital,style: const TextStyle(color: Colors.black),)
+          Text(country.name,style: const TextStyle(color: Colors.black,fontSize: 24,fontWeight: FontWeight.w500),textAlign: TextAlign.center,)
         ],
       ),
     );
