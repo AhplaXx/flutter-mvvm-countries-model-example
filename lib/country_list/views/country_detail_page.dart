@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
+
 
 import '../view_models/country_view_model.dart';
 
@@ -12,13 +14,28 @@ class CountryDetailPage extends StatefulWidget {
 }
 
 class _CountryDetailPageState extends State<CountryDetailPage> {
+
   @override
   Widget build(BuildContext context) {
+    String indep;
+
     CountryViewModel countryViewModel = context.watch<CountryViewModel>();
+    int population = countryViewModel.selectedCountry!.population;
+    String formattedPopulation = NumberFormat("#,###").format(population);
+
+
+    if(countryViewModel.selectedCountry!.independent == true){
+      indep = "Yes";
+    }else{
+      indep = "No";
+    }
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(countryViewModel.selectedCountry!.name),
+      ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+        padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -38,7 +55,7 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
                 Row (
                  children: [
                    Text("Country Name: ",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.normal),),
-                   Text(countryViewModel.selectedCountry!.name,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+                   SizedBox(width: 244,child: Text(countryViewModel.selectedCountry!.name,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),))
 
                  ],
                ),
@@ -47,6 +64,24 @@ class _CountryDetailPageState extends State<CountryDetailPage> {
                   children: [
                     Text("Country Capital: ",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.normal),),
                     Text(countryViewModel.selectedCountry!.capital,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+
+                  ],
+                ),
+                SizedBox(height: 8,),
+                Row (
+                  children: [
+
+                    Text("Is Country Independent?: ",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.normal),),
+                    Text(indep,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
+
+                  ],
+                ),
+                SizedBox(height: 8,),
+                Row (
+                  children: [
+
+                    Text("Population?: ",style: TextStyle(color: Colors.grey,fontSize: 18,fontWeight: FontWeight.normal),),
+                    Text(formattedPopulation,style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),)
 
                   ],
                 ),
