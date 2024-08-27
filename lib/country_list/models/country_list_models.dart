@@ -8,7 +8,6 @@ class Country {
   final int population;
   final String currencyName;
 
-
   Country({required this.name, required this.currencyName,required this.capital,required this.flag_url,required this.independent,required this.population});
 
   factory Country.fromJson(Map<String, dynamic> json) {
@@ -19,13 +18,14 @@ class Country {
       currencyName = currencyData['name'] as String;
     }
 
+
     return Country(
       name: const Utf8Decoder().convert(json['name']['common'].toString().codeUnits) ,
       capital: (json['capital'] != null ) ? const Utf8Decoder().convert(json['capital'][0].toString().codeUnits) : 'No Capital',
       flag_url: json['flags']['png'] as String,
       independent: json['independent'] as bool? ?? false,
       population: json['population'] as int,
-      currencyName: currencyName
+      currencyName: currencyName,
 
 
 
